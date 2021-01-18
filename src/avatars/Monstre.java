@@ -2,12 +2,13 @@ package avatars;
 
 import interstats.Combatant;
 
-public class Personnages extends Combatant {
+public class Monstre extends Combatant {
+
 	
 	/**
 	 * création de personnages, qui partiras dans le super combatant
 	 */
-	public Personnages(String nom, int vie, int force) {
+	public Monstre(String nom, int vie, int force) {
 		super(nom, vie, force);
 	}
 
@@ -17,6 +18,4 @@ public class Personnages extends Combatant {
 	public String toString() {
 		return super.toString();
 	}
-	
-	
 }
