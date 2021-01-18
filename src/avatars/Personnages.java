@@ -54,7 +54,7 @@ public class Personnages implements Stat {
 
 	@Override
 	public String toString() {
-		return "Personnages [vie=" + vie + ", force=" + force + ", nom=" + nom + "]";
+		return "Personnage : " + nom +", vie=" + vie + ", force=" + force +"\n";
 	}
 	
 	

@@ -1,16 +1,18 @@
 package run;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import avatars.Personnages;
-public class Lancement {
+public class Monde {
 	
 	private Personnages heros ;
 	private String nom;
 	private int force;
 	private int vie;
-	 
+	private List<Personnages> personne  = new ArrayList<>();
 	
-	public Lancement() {
+	public Monde() {
 		lancement();
 	}
 	
@@ -21,11 +23,19 @@ public class Lancement {
 	public void lancement() {
 		try ( Scanner scanner = new Scanner( System.in ) ) {
 			
-			System.out.println( "créé votre personage !" );
+			System.out.println( "créé le nombre de personnage !" );
+			
+			 int nombre = scanner.nextInt();
+			
+			for(int i = 1; i <=nombre ; i++) {
             while( true ) {
             	
             	System.out.println( "écrivez votre nom " );
                 this.nom = scanner.nextLine();
+                	
+                	if (nom.equals("")) {
+                		this.nom = scanner.nextLine();
+                		}
                 
                 System.out.println( "votre force " );
                 this.force = scanner.nextInt();
@@ -33,8 +43,8 @@ public class Lancement {
                 System.out.println( "votre vie " );
                 this.vie = scanner.nextInt();
                 
-                // condition avec nom ne fonctione pas !
-                	if ( this.force != 0 && this.vie != 0 && !nom.equals(null)) {
+                // si il n'y a pas 0 dans les stat et pas de vide dans le nom
+                	if ( this.force != 0 && this.vie != 0 && !nom.equals("")) {
                 		this.heros = new Personnages(this.vie,this.force,this.nom);
                 		break;
                 	}else {
@@ -43,8 +53,9 @@ public class Lancement {
                 	}
             }
             
-            System.out.println( "personnage créé" );
-            System.out.println(heros);
+            this.personne.add(this.heros);
+			}
+			System.out.println( personne );
 	}
 		
 		
@@ -83,5 +94,19 @@ public class Lancement {
 	public void setVie(int vie) {
 		this.vie = vie;
 	}
+
+	public List<Personnages> getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(List<Personnages> personne) {
+		this.personne = personne;
+	}
+
+	@Override
+	public String toString() {
+		return "Monde personnage=" + personne ;
+	}
+	
 
 }
