@@ -3,6 +3,8 @@ package run;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import avatars.Monstre;
 import avatars.Personnages;
 public class Monde {
 
@@ -14,6 +16,7 @@ public class Monde {
 
 	public Monde() {
 		lancement();
+		usine();
 	}
 
 	/**
@@ -58,9 +61,22 @@ public class Monde {
 			System.out.println( personne );
 		}
 
-
-
-
+	}
+	
+	public static void usine(){
+	    // Creer un string pour le nom de votre monstre
+	    // Creer une instance Monstre avec sont constructeur complet
+	    // retourner le monstre
+		
+		String [] motDebut = { "araignée", "loup", "demon" , "blop" , "esprit"};
+		String [] motFin = { "-volcan", "-terrest", "-mortel" , "-aquatique" , "-Tempest"};
+		 int index = (int) Math.floor(Math.random()*(6-1) + 1)-1;
+		 
+		 String name = motDebut[index] + motFin[index];
+		 
+		 Monstre m = new Monstre(name,5,5);
+		 
+		 System.out.println(m);
 	}
 
 	public Personnages getHeros() {
