@@ -14,7 +14,6 @@ public interface Iattaque {
     public void echecCritique(int degat);
     // Getters et Setters
     public String getNom();
-    public double getChanceToucher();
     public int getDegats();
     public void setNom(String nom);
     

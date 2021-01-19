@@ -71,11 +71,6 @@ public class Attaque implements Iattaque {
 		return null;
 	}
 
-	@Override
-	public double getChanceToucher() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public int getDegats() {

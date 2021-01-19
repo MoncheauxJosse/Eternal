@@ -76,13 +76,14 @@ public class Monde {
 	    // Creer une instance Monstre avec sont constructeur complet
 	    // retourner le monstre
 		
-		String [] motDebut = { "araignée", "loup", "demon" , "blop" , "esprit"};
-		String [] motFin = { "-volcan", "-terrest", "-mortel" , "-aquatique" , "-Tempest"};
-		 int index = (int) Math.floor(Math.random()*(6-1) + 1)-1;
+		String [] motDebut = { " blop" , " araignée"," esprit", " loup", " demon" ," Dragon"};
+		String [] motFin = { "-volcan"," de lumiére","-aquatique" ,"-mortel" , "-terrest", "-Tempest",};
+		 int index = (int) Math.floor(Math.random()*(7-1) + 1)-1;
+		 int index2 = (int) Math.floor(Math.random()*(7-1) + 1)-1;
 		 
-		 String name = motDebut[index] + motFin[index];
+		 String name = motDebut[index] + motFin[index2];
 		 
-		  Monstre m = new Monstre(name,5,5,2);
+		  Monstre m = new Monstre(name,3*(index+1),(index*2)+index2+1,index2+1);
 		  
 		  monstre = m ;
 		  
