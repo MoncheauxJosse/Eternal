@@ -1,10 +1,11 @@
 package interstats;
-
+import interstats.Attaque;
 public abstract class Combatant implements ICombats {
 	
 	private int vie ;
 	private int force;
 	private String nom;
+	private Attaque n;
 
         public Combatant(String nom, int vie, int force){
             this.vie = vie;
@@ -14,8 +15,10 @@ public abstract class Combatant implements ICombats {
         
         
         public void attaquer(ICombats adversaire) {
-            System.out.println(this.getNom() + " attaque " + adversaire.getNom() + " et lui inflige " + this.getForce() + " points de dégats");
-            adversaire.defendre(this.getForce());
+            System.out.println(this.getNom() + " attaque " + adversaire.getNom() );
+            n =new Attaque(this.getForce(),"basic");
+            int degat = n.lancerAttaque();
+            adversaire.defendre(degat);
             System.out.println("Il reste à " + adversaire.getNom() + " : " + adversaire.getVie() + " pdv");
         }
 
