@@ -1,6 +1,6 @@
 package interstats;
 
-public abstract class Combatant {
+public abstract class Combatant implements ICombats {
 	
 	private int vie ;
 	private int force;
