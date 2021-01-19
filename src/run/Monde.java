@@ -85,7 +85,12 @@ public class Monde {
 		 System.out.println(m);
 		 
 	}
-	
+	/**
+	 * Lancement du combat multiple via les personnage et le monstre 
+	 * retourn le resulta etape par etape
+	 * le monstre combat un personnage et si il tue le premier heros alor
+	 * il passe au suivant
+	 */
 	public void combat()
 	{
 		for (Personnages heros : this.personne) 
