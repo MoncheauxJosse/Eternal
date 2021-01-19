@@ -19,20 +19,20 @@ public interface ICombats {
 	/**
 	 * tous les avatars ont de la vie
 	 */
-	public static void getVie(){
-		
-	}
+	public int getVie();
 	
 	/**
 	 * tous les avatars on une force
 	 */
-	public static void getForce(){
-		
-}
+	public int getForce();
 	
 	/**
 	 * tout les avatars ont un nom
 	 */
-	public static void getNom(){
-	}
+	public String getNom();
+	public void setNom(String nom);
+	public void setForce(int force);
+	public void setVie(int vie);
+		
+	
 }

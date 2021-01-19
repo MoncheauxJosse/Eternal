@@ -101,17 +101,14 @@ public class Monde {
 					
 					if (this.turn == true) {
 						
-				      heros.setVie(heros.getVie()-this.monstre.getForce());
+				      heros.attaquer(this.monstre);
 				      turn = false;
-				      System.out.println("monstre "+monstre.getNom()+ " Attaque " + heros.getNom());
-				      System.out.println("vie heros " + heros.getNom() +" " + heros.getVie());
 				      
 				    }
 				    else {
-				    	this.monstre.setVie(this.monstre.getVie()-heros.getForce());
+				    	this.monstre.attaquer(heros);
 				        turn = true;
-				        System.out.println("Heros "+heros.getNom()+ " Attaque " + monstre.getNom());
-				        System.out.println( "vie Monstre " + monstre.getNom() +" " + monstre.getVie());
+				        
 				    }
 					
 					

@@ -11,6 +11,17 @@ public abstract class Combatant implements ICombats {
             this.force = force;
             this.nom = nom ;
         }
+        
+        
+        public void attaquer(ICombats adversaire) {
+            System.out.println(this.getNom() + " attaque " + adversaire.getNom() + " et lui inflige " + this.getForce() + " points de dégats");
+            adversaire.defendre(this.getForce());
+            System.out.println("Il reste à " + adversaire.getNom() + " : " + adversaire.getVie() + " pdv");
+        }
+
+        public void defendre(int degats) {
+            this.setVie(this.getVie() - degats);
+        }
 
 		public int getVie() {
 			return vie;
