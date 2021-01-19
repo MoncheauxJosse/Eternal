@@ -8,15 +8,19 @@ import avatars.Monstre;
 import avatars.Personnages;
 public class Monde {
 
+	private Monstre monstre ;
+	private List <Monstre> monstres = new ArrayList<>();
 	private Personnages heros ;
 	private String nom;
 	private int force;
 	private int vie;
 	private List<Personnages> personne  = new ArrayList<>();
+	private Boolean turn =true;
 
 	public Monde() {
 		lancement();
 		usine();
+		combat();
 	}
 
 	/**
@@ -63,7 +67,7 @@ public class Monde {
 
 	}
 	
-	public static void usine(){
+	public void usine(){
 	    // Creer un string pour le nom de votre monstre
 	    // Creer une instance Monstre avec sont constructeur complet
 	    // retourner le monstre
@@ -74,10 +78,49 @@ public class Monde {
 		 
 		 String name = motDebut[index] + motFin[index];
 		 
-		 Monstre m = new Monstre(name,5,5);
-		 
+		  Monstre m = new Monstre(name,5,5);
+		  
+		  monstre = m ;
+		  
 		 System.out.println(m);
+		 
 	}
+	
+	public void combat()
+	{
+		for (Personnages heros : this.personne) 
+			
+		{
+			
+				while(heros.getVie() >0 && this.monstre.getVie() > 0) {
+					
+					if (this.turn == true) {
+						
+				      heros.setVie(heros.getVie()-this.monstre.getForce());
+				      turn = false;
+				      System.out.println("monstre "+monstre.getNom()+ " Attaque " + heros.getNom());
+				      System.out.println("vie heros " + heros.getNom() +" " + heros.getVie());
+				      
+				    }
+				    else {
+				    	this.monstre.setVie(this.monstre.getVie()-heros.getForce());
+				        turn = true;
+				        System.out.println("Heros "+heros.getNom()+ " Attaque " + monstre.getNom());
+				        System.out.println( "vie Monstre " + monstre.getNom() +" " + monstre.getVie());
+				    }
+					
+					
+				}
+			
+		}
+	}
+	
+	public void essai() {
+		
+		System.out.println(this.personne);
+		
+	}
+	
 
 	public Personnages getHeros() {
 		return heros;
@@ -119,10 +162,38 @@ public class Monde {
 		this.personne = personne;
 	}
 
+	
+	public Monstre getMonstre() {
+		return monstre;
+	}
+
+	public void setMonstre(Monstre monstre) {
+		this.monstre = monstre;
+	}
+
+	public List<Monstre> getMonstres() {
+		return monstres;
+	}
+
+	public void setMonstres(List<Monstre> monstres) {
+		this.monstres = monstres;
+	}
+
+	
+	public Boolean getTurn() {
+		return turn;
+	}
+
+	public void setTurn(Boolean turn) {
+		this.turn = turn;
+	}
+
 	@Override
 	public String toString() {
 		return "Monde personnage=" + personne ;
 	}
 
 
+	
+	
 }
