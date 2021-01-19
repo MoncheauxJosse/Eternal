@@ -1,6 +1,6 @@
 package interstats;
 
-import java.util.Random;
+
 
 public class Attaque implements Iattaque {
 
@@ -14,6 +14,10 @@ public class Attaque implements Iattaque {
 		this.nom = nom;
 	}
 
+	/**
+	 * l'attaque sera raté ou reussit ou coup critique 
+	 * selon le random chance
+	 */
 	@Override
 	public int lancerAttaque() {
 

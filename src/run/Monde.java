@@ -14,6 +14,7 @@ public class Monde {
 	private String nom;
 	private int force;
 	private int vie;
+	private int type;
 	private List<Personnages> personne  = new ArrayList<>();
 	private Boolean turn =true;
 
@@ -50,9 +51,12 @@ public class Monde {
 					System.out.println( "votre vie " );
 					this.vie = scanner.nextInt();
 
+					System.out.println( "votre type : feu=1, lumiere=2, eau=3, tenebre=4, terre=5, air=6 " );
+					this.type = scanner.nextInt();
+					
 					// si il n'y a pas 0 dans les stat et pas de vide dans le nom
 					if ( this.force != 0 && this.vie != 0 && !nom.equals("")) {
-						this.heros = new Personnages(this.nom,this.vie,this.force);
+						this.heros = new Personnages(this.nom,this.vie,this.force,this.type);
 						break;
 					}else {
 						System.out.println( "les champs remplies ne sont pas acceptés " );
@@ -78,7 +82,7 @@ public class Monde {
 		 
 		 String name = motDebut[index] + motFin[index];
 		 
-		  Monstre m = new Monstre(name,5,5);
+		  Monstre m = new Monstre(name,5,5,2);
 		  
 		  monstre = m ;
 		  
@@ -188,6 +192,14 @@ public class Monde {
 
 	public void setTurn(Boolean turn) {
 		this.turn = turn;
+	}
+	
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	@Override
