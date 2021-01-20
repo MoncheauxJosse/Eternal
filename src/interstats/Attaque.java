@@ -84,4 +84,10 @@ public class Attaque implements Iattaque {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "["+" nom=" + nom + ", degat=" + degat + "]";
+	}
+
+	
 }

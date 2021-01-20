@@ -3,7 +3,7 @@ package run;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import Classe.Class;
 import avatars.Monstre;
 import avatars.Personnages;
 public class Monde {
@@ -17,6 +17,7 @@ public class Monde {
 	private int type;
 	private List<Personnages> personne  = new ArrayList<>();
 	private Boolean turn =true;
+	private int classe;
 
 	public Monde() {
 		lancement();
@@ -53,10 +54,15 @@ public class Monde {
 
 					System.out.println( "votre type : feu=1, lumiere=2, eau=3, tenebre=4, terre=5, air=6 " );
 					this.type = scanner.nextInt();
+					//"Dev", "ScrumMaster", "ProductOwner", "adminsystem", "architecte"
+					System.out.println( "votre classe : Dev=1, ScrumMaster=2, ProductOwner=3, adminsystem=4, architecte=5" );
+					this.classe = scanner.nextInt();
 					
 					// si il n'y a pas 0 dans les stat et pas de vide dans le nom
 					if ( this.force != 0 && this.vie != 0 && !nom.equals("")) {
-						this.heros = new Personnages(this.nom,this.vie,this.force,this.type);
+						Class c = new Class(this.classe,this.type);
+						
+						this.heros = new Personnages(this.nom,this.vie,this.force,this.type,c);
 						break;
 					}else {
 						System.out.println( "les champs remplies ne sont pas acceptés " );
