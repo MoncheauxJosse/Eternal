@@ -21,7 +21,7 @@ public class Monde {
 
 	public Monde() {
 		lancement();
-		usine();
+		usineMonstre();
 		combat();
 	}
 
@@ -77,24 +77,30 @@ public class Monde {
 
 	}
 	
-	public void usine(){
+	public void usineMonstre(){
 	    // Creer un string pour le nom de votre monstre
 	    // Creer une instance Monstre avec sont constructeur complet
 	    // retourner le monstre
 		
-		String [] motDebut = { " blop" , " araignée"," esprit", " loup", " demon" ," Dragon"};
-		String [] motFin = { "-volcan"," de lumiére","-aquatique" ,"-mortel" , "-terrest", "-Tempest",};
-		 int index = (int) Math.floor(Math.random()*(7-1) + 1)-1;
+		
+		int index = (int) Math.floor(Math.random()*(7-1) + 1)-1;
 		 int index2 = (int) Math.floor(Math.random()*(7-1) + 1)-1;
+		 int index3= (int) Math.floor(Math.random()*(6-1) + 1)-1;
+		 for(int i = 1; i <=index3+1 ; i++) {
+			 String [] motDebut = { " blop" , " araignée"," esprit", " loup", " demon" ," Dragon"};
+			 String [] motFin = { "-volcan n."+i," de lumiére n."+i,"-aquatique n."+i ,"-mortel n."+i , "-terrest n."+i, "-Tempest n."+i};
 		 
-		 String name = motDebut[index] + motFin[index2];
 		 
-		  Monstre m = new Monstre(name,3*(index+1),(index*2)+index2+1,index2+1);
+			 String name = motDebut[index] + motFin[index2];
+		 
+			 Monstre m = new Monstre(name,3*(index+1),(index*2)+index2+1,index2+1);
 		  
-		  monstre = m ;
+			 this.monstre = m ;
 		  
-		 System.out.println(m);
-		 
+			
+			 this.monstres.add(this.monstre);
+		 }
+		 System.out.println(monstres);
 	}
 	/**
 	 * Lancement du combat multiple via les personnage et le monstre 
@@ -107,8 +113,8 @@ public class Monde {
 		for (Personnages heros : this.personne) 
 			
 		{
-			
-				while(heros.getVie() >0 && this.monstre.getVie() > 0) {
+			for (Monstre monstre : this.monstres) {
+				while(heros.getVie() >0 && monstre.getVie() > 0) {
 					
 					if (this.turn == true) {
 						
@@ -124,7 +130,7 @@ public class Monde {
 					
 					
 				}
-			
+			}
 		}
 	}
 	
